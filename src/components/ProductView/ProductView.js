@@ -9,8 +9,19 @@ function ProductView({ products }) {
   const [sideOpen, setSideOpen] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState(null)
 
-  useEffect(() => { setSideOpen(() => true) }, [selectedProduct])
-  useEffect(() => { setSelectedProduct(() => null) }, [sideOpen]);
+  // Open side Panel
+  useEffect(() => {
+    console.log(`selectedProduct CHANGED TO ${selectedProduct}`);
+    if (selectedProduct) setSideOpen(() => true);
+  }, [selectedProduct]);
+
+  // Deselect product
+  useEffect(() => {
+    console.log(`sideOpen CHANGED TO ${sideOpen}`)
+    if (!sideOpen) setSelectedProduct(() => null)
+  }, [sideOpen]);
+
+  // console.log('Product view return count');
   return (
     <div className="product-view">
       <div className="product-main-area">

@@ -11,6 +11,7 @@ function ProductDetails({ product, visible }) {
     </div>
   )
 
+  // console.log('product details render count')
   return (
     <div className="product-details">
       <p className="product-info">{product.name}</p>
